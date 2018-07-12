@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
 
 @RefreshScope
 @RestController
@@ -23,6 +24,7 @@ public class ServiceBController {
     @GetMapping(value = "/")
     public String printServiceB(HttpServletRequest req) {
         ServiceInstance serviceInstance = discoveryClient.getLocalServiceInstance();
+        Object accessToken = req.getHeader("Authorization");
         return serviceInstance.getServiceId() + " (" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + ")" + "===>Say " + msg;
     }
 }

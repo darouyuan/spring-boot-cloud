@@ -21,6 +21,8 @@ spring:
           search-paths: config-repo
   rabbitmq:
     host: rabbitmq
+    username: guest
+    password: guest
 
 security:
   user:
